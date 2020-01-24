@@ -1,0 +1,60 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+
+<h1>Airlines Passengers List 1st example</h1>
+
+<ul>
+  <li *ngFor="let pass of passangers; let i = index">
+    <span class="status" [class.checked-in]="pass.checkedIn"></span>
+  
+    <!-- else we can bind class like it
+      [ngClass]="{'checked-in' : pass.checkedIn}"
+     -->
+   {{ i }} : {{ pass.name }}
+    <p> {{ pass | json}} </p>
+  
+  <!-- using pipe transformation into this -->
+  <div class="">
+    <h3>Check In Date : {{ pass.chekedInDate  ? (pass.chekedInDate | date : 'yMMMMd' | uppercase) : 'Not checked in '}}</h3></div>
+
+<!-- showing children  -->
+    <div class="children">
+      Children : {{ pass.children?.length || 0 }}
+    </div>
+  </li>
+  
+
+
+
+</ul>
+
+
+
+<h1>Airlines Passengers List 2nd example</h1>
+
+<ul>
+  <li *ngFor="let pass of passangers; let i = index">
+    <span class="status" [style.backgroundColor]="(pass.checkedIn ? 'green' : 'red')"></span>
+
+    <!-- else we can bind class like it
+      [ngClass]="{'checked-in' : pass.checkedIn}"
+     -->
+   {{ i }} : {{ pass.name }}
+  </li>
+</ul>
+
+
+<h1>Airlines Passengers List 3rd example</h1>
+
+<ul>
+  <li *ngFor="let pass of passangers; let i = index">
+    <span class="status" [ngStyle]="{ backgroundColor : (pass.checkedIn ? 'green' : 'red')}"></span>
+
+    <!-- else we can bind class like it
+      [ngClass]="{'checked-in' : pass.checkedIn}"
+     -->
+   {{ i }} : {{ pass.name }}
+  </li>
+</ul>
